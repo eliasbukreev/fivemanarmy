@@ -169,19 +169,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = e.target;
     const submitBtn = form.querySelector(".submit-btn"); // Submit button
     const successMessage = document.getElementById("successMessage"); // Success message element
+    const errorMessage = document.getElementById("errorMessage"); // Error message element (if exists)
     submitBtn.style.transform = "translateY(-1px)"; // Slight button press effect
-    submitBtn.textContent = "Sending..."; // Update button text
+    submitBtn.textContent = "Отправка..."; // Update button text
     submitBtn.disabled = true; // Disable button
-    setTimeout(() => {
-      form.reset(); // Reset form
-      submitBtn.textContent = "Send Message"; // Restore button text
-      submitBtn.disabled = false; // Enable button
-      submitBtn.style.transform = ""; // Reset button style
-      successMessage.classList.add("show"); // Show success message
-      setTimeout(() => {
-        successMessage.classList.remove("show"); // Hide after 5s
-      }, 5000);
-    }, 1500); // Simulate form submission delay
+
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          form.reset(); // Reset form
+          submitBtn.textContent = "Отправить"; // Restore button text
+          submitBtn.disabled = false; // Enable button
+          submitBtn.style.transform = ""; // Reset button style
+          successMessage.classList.add("show"); // Show success message
+          setTimeout(() => {
+            successMessage.classList.remove("show"); // Hide after 5s
+          }, 5000);
+        } else {
+          return response.json().then((data) => {
+            throw new Error(data.error || "Ошибка отправки");
+          });
+        }
+      })
+      .catch((error) => {
+        submitBtn.textContent = "Отправить"; // Restore button text
+        submitBtn.disabled = false; // Enable button
+        submitBtn.style.transform = ""; // Reset button style
+        if (errorMessage) {
+          errorMessage.textContent = "Не удалось отправить. Попробуйте ещё раз или напишите мне напрямую.";
+          errorMessage.classList.add("show");
+          setTimeout(() => errorMessage.classList.remove("show"), 5000);
+        } else {
+          alert("Не удалось отправить сообщение: " + error.message);
+        }
+      });
   };
 
   // Enhance form inputs with focus/blur animations
