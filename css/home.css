@@ -45,6 +45,15 @@
   
   .hero .hero-footer .hero-footer-symbols {
     height: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero .hero-footer .hero-footer-symbols img {
+    width: auto;
+    height: 1rem;
+    max-width: 100%;
+    object-fit: contain;
   }
   
   /* home - hero img holder */
