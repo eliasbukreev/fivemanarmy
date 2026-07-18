@@ -189,7 +189,7 @@
 
   .about-hero {
     height: auto;
-    min-height: 100svh;
+    min-height: 120svh;
     overflow: visible;
     padding-bottom: 4em;
   }
