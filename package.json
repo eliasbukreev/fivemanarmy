@@ -1,7 +1,7 @@
 {
-    "name": "prashant-koirala-portfolio",
+    "name": "eliasbukreev-portfolio",
     "version": "1.0.0",
-    "description": "Prashant Koirala's Portfolio",
+    "description": "Илья Букреев — Portfolio & Resume",
     "main": "index.js",
     "scripts": {
       "dev": "vite",
@@ -10,7 +10,7 @@
       "host": "vite --host"
     },
     "keywords": [],
-    "author": "Prashant Koirala",
+    "author": "Илья Букреев",
     "license": "MIT",
     "dependencies": {
       "gsap": "^3.13.0",
