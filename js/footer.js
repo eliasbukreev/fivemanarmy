@@ -1,4 +1,5 @@
 // footer.js
+import { PROJECT_COUNT } from "./project-config.js";
 
 // Wait for DOM to fully load before executing
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,10 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     // Define particle images
-    const imageParticleCount = 10; // Number of particle images
+    const imageParticleCount = PROJECT_COUNT;
     const imagePaths = Array.from(
       { length: imageParticleCount },
-      (_, i) => `/images/work-items/work-item-${i + 1}.jpg` // Paths to images (work-item-1.jpg to work-item-10.jpg)
+      (_, i) => `/images/work-items/work-item-${i + 1}.jpg` // Paths to images (work-item-1.jpg to work-item-4.jpg)
     );
   
     // Preload images to avoid delays

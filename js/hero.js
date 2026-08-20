@@ -3,6 +3,7 @@
 // Import GSAP and ScrollTrigger plugin
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { PROJECT_COUNT } from "./project-config.js";
 
 // Wait for DOM to fully load before executing
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Select hero image element
   const heroImg = document.querySelector(".hero-img img");
   let currentImageIndex = 1; // Tracks current image in sequence
-  const totalImages = 10; // Total number of images for cycling
+  const totalImages = PROJECT_COUNT;
   let scrollTriggerInstance = null; // Stores ScrollTrigger instance for cleanup
 
   // Cycle through images every 250ms

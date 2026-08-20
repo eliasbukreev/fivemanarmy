@@ -3,6 +3,7 @@
 // Import GSAP and ScrollTrigger plugin
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { PROJECT_COUNT } from "./project-config.js";
 
 // Wait for DOM to fully load before executing
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Create section indicators (e.g., "01", "02", ..., "05") and progress dots
     const indicatorContainer = document.querySelector(".featured-work-indicator");
     indicatorContainer.innerHTML = ""; // Clear existing content
-    for (let section = 1; section <= 5; section++) {
+    for (let section = 1; section <= PROJECT_COUNT; section++) {
       // Add section number
       const sectionNumber = document.createElement("p");
       sectionNumber.className = "mn";
@@ -54,24 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: 1500, x: 100 },
       { y: 1250, x: 1950 },
       { y: 1500, x: 850 },
-      { y: 200, x: 2100 },
-      { y: 250, x: 600 },
-      { y: 1100, x: 1650 },
-      { y: 1000, x: 800 },
-      { y: 900, x: 2200 },
-      { y: 150, x: 1600 },
     ];
     const featuredCardPosLarge = [
       { y: 800, x: 5000 },
       { y: 2000, x: 3000 },
       { y: 240, x: 4450 },
       { y: 1200, x: 3450 },
-      { y: 500, x: 2200 },
-      { y: 750, x: 1100 },
-      { y: 1850, x: 3350 },
-      { y: 2200, x: 1300 },
-      { y: 3000, x: 1950 },
-      { y: 500, x: 4500 },
     ];
     // Select position set based on screen width
     const featuredCardPos =
@@ -84,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Create image cards dynamically
     const imagesContainer = document.querySelector(".featured-images");
     imagesContainer.innerHTML = ""; // Clear existing content
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= PROJECT_COUNT; i++) {
       const featuredImgCard = document.createElement("div");
       featuredImgCard.className = `featured-img-card featured-img-card-${i}`;
       const img = document.createElement("img");

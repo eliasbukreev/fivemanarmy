@@ -1,4 +1,5 @@
 // contact.js
+import { PROJECT_COUNT } from "./project-config.js";
 
 // Wait for DOM to fully load before executing
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Configuration for image trail behavior
   const config = {
-    imageCount: 8, // Number of images in trail
+    imageCount: PROJECT_COUNT,
     imageLifespan: 800, // Time before image removal (ms)
     removalDelay: 60, // Delay between removals (ms)
     mouseThreshold: 80, // Minimum mouse movement distance to create image
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Define image paths for trail
   const images = Array.from(
     { length: config.imageCount },
-    (_, i) => `/images/work-items/work-item-${i + 1}.jpg` // Paths to images (work-item-1.jpg to work-item-8.jpg)
+    (_, i) => `/images/work-items/work-item-${i + 1}.jpg` // Paths to images (work-item-1.jpg to work-item-4.jpg)
   );
   const trail = []; // Store active trail images
 
