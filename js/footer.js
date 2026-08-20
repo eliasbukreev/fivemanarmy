@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageParticleCount = PROJECT_COUNT;
     const imagePaths = Array.from(
       { length: imageParticleCount },
-      (_, i) => `/images/work-items/work-item-${i + 1}.jpg` // Paths to images (work-item-1.jpg to work-item-4.jpg)
+      (_, i) => `/images/work-items/work-item-${i + 1}.webp` // Paths to images (work-item-1.webp to work-item-4.webp)
     );
   
     // Preload images to avoid delays

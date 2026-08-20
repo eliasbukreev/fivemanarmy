@@ -1,8 +1,4 @@
-node_modules/
 .DS_Store
-/public
-/node_modules
-/.DS_Store
 .vite
 /node_modules
 /dist
