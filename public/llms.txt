@@ -1,0 +1,14 @@
+# Илья Букреев
+
+Full-stack разработчик, создающий современные сайты, веб-приложения и цифровые продукты.
+
+## Страницы
+
+- [Главная](https://fivemanarmy.ru/): профиль, услуги и избранные проекты.
+- [Портфолио](https://fivemanarmy.ru/work): список опубликованных проектов.
+- [Контакты](https://fivemanarmy.ru/contact): форма для обсуждения нового проекта.
+
+## Ссылки
+
+- [GitHub](https://github.com/eliasbukreev)
+- [Telegram](https://t.me/fivemanarmy)

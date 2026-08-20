@@ -11,7 +11,6 @@ footer {
     align-items: center;
     overflow: hidden;
   }
-  
   footer .footer-container {
     position: relative;
     width: 100%;
@@ -52,8 +51,13 @@ footer {
   }
   
   footer .footer-col p:not(:first-child) {
-    opacity: 0.35;
-  }
+     opacity: 1;
+     color: #b7c0b7;
+   }
+
+   footer .footer-col p:not(:first-child) a {
+     color: #b7c0b7;
+   }
   
   footer .copyright-info {
     position: relative;
@@ -141,7 +145,37 @@ footer {
     }
 
     footer .footer-header {
-      visibility: hidden;
-    }
-  }
+       visibility: visible;
+       margin-top: 1em;
+       font-size: clamp(1.5rem, 8vw, 2.5rem);
+     }
+
+     footer .footer-container {
+       padding: 1.25em;
+     }
+
+     footer .footer-row {
+       gap: 1em;
+     }
+   }
+
+   @media (max-width: 480px) {
+     footer {
+       padding: 1em;
+     }
+
+     footer .footer-container {
+       border-radius: 1em;
+     }
+
+     footer .footer-col {
+       gap: 0.65em;
+     }
+
+     footer .footer-col p,
+     footer .footer-col p a {
+       overflow-wrap: anywhere;
+       text-align: center;
+     }
+   }
   

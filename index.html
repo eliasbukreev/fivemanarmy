@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Илья Букреев | Портфолио</title>
+    <meta name="description" content="Илья Букреев — full-stack разработчик. Создаю современные сайты, веб-приложения и цифровые продукты от идеи до запуска." />
+    <link rel="canonical" href="https://fivemanarmy.ru/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Илья Букреев | Full-stack разработчик" />
+    <meta property="og:description" content="Современные сайты, веб-приложения и цифровые продукты от идеи до запуска." />
+    <meta property="og:url" content="https://fivemanarmy.ru/" />
+    <meta property="og:image" content="https://fivemanarmy.ru/images/services-header/portrait.webp" />
+    <meta property="og:image:width" content="700" />
+    <meta property="og:image:height" content="714" />
+    <meta property="og:image:alt" content="Илья Букреев — Full-stack разработчик" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Илья Букреев | Full-stack разработчик" />
+    <meta name="twitter:description" content="Современные сайты, веб-приложения и цифровые продукты от идеи до запуска." />
+    <meta name="twitter:image" content="https://fivemanarmy.ru/images/services-header/portrait.webp" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Илья Букреев",
+        "jobTitle": "Full-stack разработчик",
+        "url": "https://fivemanarmy.ru/",
+        "email": "mailto:elias.activity@gmail.com",
+        "sameAs": [
+          "https://github.com/eliasbukreev",
+          "https://t.me/fivemanarmy"
+        ]
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/images/global/favicon.svg" />
 
     <link rel="stylesheet" href="/css/transition.css" />
@@ -60,7 +89,7 @@
                  <p class="mn">Найти меня</p>
                </div>
                <div class="nav-footer-item-copy">
-                  <p class="mn"><a href="https://github.com/eliasbukreev" target="_blank">Github</a></p>
+                   <p class="mn"><a href="https://github.com/eliasbukreev" target="_blank" rel="noopener noreferrer">Github</a></p>
                </div>
             </div>
             <div class="nav-footer-item">
@@ -74,7 +103,7 @@
               </div>
               <div class="nav-footer-item-copy">
                 <p class="mn">
-                  <a href="mailto:elias.activity@gmail.com" target="_blank"
+                   <a href="mailto:elias.activity@gmail.com" target="_blank" rel="noopener noreferrer"
                     >elias.activity@gmail.com</a
                   >
                 </p>
@@ -84,7 +113,8 @@
         </div>
 
         <!-- home - hero -->
-      <section class="hero">
+       <main>
+       <section class="hero">
         <div class="hero-header-wrapper">
           <div class="hero-header hero-header-1">
             <h1>Илья</h1>
@@ -314,16 +344,17 @@
 
 
         <!-- home - contact cta -->
-      <section class="contact-cta">
+      <section class="contact-cta" aria-labelledby="contact-cta-title">
         <div class="contact-button">
-          <a href="/contact"></a>
+          <a href="/contact" aria-label="Перейти на страницу контактов"></a>
           <div class="contact-text-small">
             <p>Давайте создадим что-то потрясающее вместе</p>
            </div>
-           <div class="contact-text-large"><h1>Связаться</h1></div>
+           <div class="contact-text-large"><h1 id="contact-cta-title">Связаться</h1></div>
         </div>
       </section>
 
+      </main>
 <!-- home - footer -->
 <footer>
     <div class="footer-container">
@@ -352,13 +383,13 @@
         </div>
         <div class="footer-col">
           <p>Связь</p>
-          <p><a href="https://t.me/fivemanarmy" target="_blank">Telegram</a></p>
-          <p><a href="https://github.com/eliasbukreev" target="_blank">Github</a></p>
+           <p><a href="https://t.me/fivemanarmy" target="_blank" rel="noopener noreferrer">Telegram</a></p>
+           <p><a href="https://github.com/eliasbukreev" target="_blank" rel="noopener noreferrer">Github</a></p>
         </div>
         <div class="footer-col">
           <p>Полезное</p>
-          <p><a href="https://hh.ru" target="_blank">HeadHunter</a></p>
-          <p><a href="https://habr.ru" target="_blank">Хабр</a></p>
+           <p><a href="https://hh.ru" target="_blank" rel="noopener noreferrer">HeadHunter</a></p>
+           <p><a href="https://habr.ru" target="_blank" rel="noopener noreferrer">Хабр</a></p>
         </div>
 
       </div>
@@ -366,7 +397,7 @@
         <p class="mn">© - Илья Букреев // 2026</p>
         <p class="mn"></p>
       </div>
-      <div class="explosion-container"></div>
+       <div class="explosion-container" aria-hidden="true"></div>
     </div>
   </footer>
 

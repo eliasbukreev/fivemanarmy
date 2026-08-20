@@ -98,6 +98,13 @@
   transform: translateX(8px);
 }
 
+.contact-info-item a,
+.contact-form-container,
+.contact-card-header-main,
+.contact-form {
+  overflow-wrap: anywhere;
+}
+
 .contact-form-container {
   background-color: var(--bg2);
   border: 2px solid var(--fg);

@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       imagePaths.forEach((path) => {
         const particle = document.createElement("img");
         particle.src = path;
+        particle.alt = "";
         particle.classList.add("explosion-particle-img"); // Add class for styling
         particle.style.width = `${config.imageSize}px`; // Set image size
         explosionContainer.appendChild(particle); // Add to container

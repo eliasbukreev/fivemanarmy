@@ -58,6 +58,15 @@
     text-decoration: none;
     color: var(--fg);
   }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid var(--accent1);
+    outline-offset: 4px;
+  }
   
   p,
   p.ss {
@@ -198,5 +207,16 @@
   
     .contact-cta .contact-text-large h1 {
       font-size: 3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
