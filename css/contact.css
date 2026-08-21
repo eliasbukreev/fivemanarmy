@@ -373,6 +373,7 @@
     grid-template-columns: 1fr;
     gap: 2em;
     padding: 1.5em 1em;
+    padding-top: 6em;
   }
   
   .contact-card-header-main p {
@@ -381,6 +382,10 @@
 }
 
 @media (max-width: 1000px) {
+  .contact {
+    padding-top: 6em;
+  }
+
   .contact-card-header-main h1 {
     font-size: clamp(2rem, 5vw, 3rem);
   }
@@ -393,6 +398,7 @@
 @media (max-width: 768px) {
   .contact {
     padding: 1em;
+    padding-top: 6em;
     gap: 1.5em;
   }
   
