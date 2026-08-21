@@ -189,4 +189,9 @@ nav {
       justify-content: center;
     }
   }
+
+  @media (min-width: 1600px) {
+    .nav-overlay .nav-items .nav-item p { font-size: 2.5rem; }
+    .nav-overlay .nav-footer .nav-footer-item p { font-size: 0.875rem; }
+  }
   

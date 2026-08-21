@@ -220,3 +220,10 @@
       transition-duration: 0.01ms !important;
     }
   }
+
+  @media (min-width: 1600px) {
+    :root { font-size: 16px; }
+    h1 { font-size: 5rem; }
+    h2 { font-size: 4rem; }
+    h3 { font-size: 2rem; }
+  }
