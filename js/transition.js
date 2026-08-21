@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Trigger initial reveal transition on page load
   revealTransition();
 
+  // Handle bfcache: when page is restored via back/forward browser buttons
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      gsap.set(".transition-overlay", { scaleY: 0 });
+    }
+  });
+
   // Reveal Transition: Animates overlay scaling down to reveal page
   function revealTransition() {
     return new Promise((resolve) => {
