@@ -255,6 +255,33 @@
     color: var(--bg);
   }
 
+  @media (min-width: 1600px) {
+    .hero .hero-footer {
+      padding: 2.5em;
+    }
+
+    .hero .hero-footer .hero-footer-symbols {
+      height: 1.5rem;
+    }
+
+    .hero .hero-footer .hero-footer-symbols img {
+      height: 1.5rem;
+    }
+
+    .hero .hero-footer .hero-footer-scroll-down p,
+    .hero .hero-footer .hero-footer-tags p {
+      font-size: clamp(1rem, 1vw, 1.25rem);
+    }
+
+    .featured-work .featured-work-footer {
+      padding: 2.5em;
+    }
+
+    .featured-work .featured-work-footer p {
+      font-size: clamp(1rem, 1vw, 1.25rem);
+    }
+  }
+
   @media (max-width: 1000px) {
     .hero .hero-footer .hero-footer-symbols {
       display: none;

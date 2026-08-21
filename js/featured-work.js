@@ -49,18 +49,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Define image card positions for small and large screens
+    // Store card positions as fractions of the featured-images canvas.
+    // The ratios preserve the existing layouts at 1440x900 and 2560x1440,
+    // while allowing the cards to follow the canvas at other resolutions.
     const featuredCardPosSmall = [
-      { y: 100, x: 1000 },
-      { y: 1500, x: 100 },
-      { y: 1250, x: 1950 },
-      { y: 1500, x: 850 },
+      { y: 0.0555556, x: 0.3472222 },
+      { y: 0.8333333, x: 0.0347222 },
+      { y: 0.6944444, x: 0.6770833 },
+      { y: 0.8333333, x: 0.2951389 },
     ];
     const featuredCardPosLarge = [
-      { y: 800, x: 5000 },
-      { y: 2000, x: 3000 },
-      { y: 240, x: 4450 },
-      { y: 1200, x: 3450 },
+      { y: 0.2777778, x: 0.9765625 },
+      { y: 0.6944444, x: 0.5859375 },
+      { y: 0.0833333, x: 0.8691406 },
+      { y: 0.4166667, x: 0.6738281 },
     ];
     // Select position set based on screen width
     const featuredCardPos =
@@ -82,11 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
       img.decoding = "async";
       img.alt = `featured work image ${i}`;
       featuredImgCard.appendChild(img);
-      // Set initial position from predefined coordinates
+      // Convert the relative position to the current canvas dimensions.
       const position = featuredCardPos[i - 1];
       gsap.set(featuredImgCard, {
-        x: position.x,
-        y: position.y,
+        x: position.x * imagesContainer.offsetWidth,
+        y: position.y * imagesContainer.offsetHeight,
       });
       imagesContainer.appendChild(featuredImgCard);
     }
@@ -150,5 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Re-run animations on window resize to recalculate positions and trigger points
   window.addEventListener("resize", () => {
     initAnimations();
+    ScrollTrigger.refresh();
   });
 });

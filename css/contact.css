@@ -361,6 +361,13 @@
   100% { transform: translateX(0%); }
 }
 
+@media (min-width: 1600px) {
+  .contact {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 1200px) {
   .contact {
     grid-template-columns: 1fr;

@@ -38,15 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.top = `-${scrollY}px`; // Preserve scroll position
       document.body.style.width = "100%"; // Prevent width shift
 
-      // Animate open label upward
+      // Animate open label upward by the wrapper height
+      const btnH = menuToggleBtn.querySelector(".menu-toggle-btn-wrapper").offsetHeight;
       gsap.to(openLabel, {
-        y: "-1rem", // Move up by 1rem
+        y: -btnH, // Move up by wrapper height
         duration: 0.3, // Animation duration
       });
 
-      // Animate close label upward
+      // Animate close label upward by the wrapper height
       gsap.to(closeLabel, {
-        y: "-1rem", // Move up by 1rem
+        y: -btnH, // Move up by wrapper height
         duration: 0.3, // Animation duration
       });
 

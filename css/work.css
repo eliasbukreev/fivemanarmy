@@ -21,6 +21,9 @@
 .work-cta h2 { font-size: clamp(4rem, 12vw, 11rem); }
 .work-cta a { color: var(--bg); transition: color .3s ease; }
 .work-cta a:hover, .work-cta a:focus-visible { color: var(--accent1); }
+@media (min-width: 1600px) {
+  .work-footer p, .work-cta > p { font-size: clamp(1rem, 1vw, 1.25rem); }
+}
 @media (max-width: 1000px) {
   .work-header { min-height: 100svh; padding: 7em 2em 6em; }
   .work-header-title { margin-bottom: 1em; }

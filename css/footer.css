@@ -111,7 +111,17 @@ footer {
     will-change: transform;
   }
   
-  @media (max-width: 1000px) {
+   @media (min-width: 1600px) {
+     footer {
+       height: 60svh;
+     }
+
+     footer .footer-row {
+       margin-bottom: 4em;
+     }
+   }
+
+   @media (max-width: 1000px) {
     footer {
       height: 100svh;
     }
