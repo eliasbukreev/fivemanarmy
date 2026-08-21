@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentImageIndex >= totalImages ? 1 : currentImageIndex + 1;
     // Update hero image source
     heroImg.src = `/images/work-items/work-item-${currentImageIndex}.webp`;
-  }, 250);
+  }, 750);
 
   // Initialize animations with ScrollTrigger
   const initAnimations = () => {
