@@ -49,28 +49,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Store card positions as fractions of the featured-images canvas.
-    // The ratios preserve the existing layouts at 1440x900 and 2560x1440,
-    // while allowing the cards to follow the canvas at other resolutions.
-    const featuredCardPosSmall = [
-      { y: 0.0555556, x: 0.3472222 },
-      { y: 0.8333333, x: 0.0347222 },
-      { y: 0.6944444, x: 0.6770833 },
-      { y: 0.8333333, x: 0.2951389 },
-    ];
-    const featuredCardPosLarge = [
-      { y: 0.2777778, x: 0.9765625 },
-      { y: 0.6944444, x: 0.5859375 },
-      { y: 0.0833333, x: 0.8691406 },
-      { y: 0.4166667, x: 0.6738281 },
-    ];
-    // Select position set based on screen width
-    const featuredCardPos =
-      window.innerWidth >= 1600 ? featuredCardPosLarge : featuredCardPosSmall;
-
     // Set up featured titles container
     const featuredTitles = document.querySelector(".featured-titles");
     const moveDistance = window.innerWidth * 4; // Distance for title movement
+
+    // Keep the decorative layout, but bring every card closer to the canvas center.
+    const featuredCardPosSmall = [
+      { y: 0.30, x: 0.42 },
+      { y: 0.68, x: 0.25 },
+      { y: 0.61, x: 0.60 },
+      { y: 0.68, x: 0.39 },
+    ];
+    const featuredCardPosLarge = [
+      { y: 0.38, x: 0.67 },
+      { y: 0.59, x: 0.54 },
+      { y: 0.31, x: 0.63 },
+      { y: 0.46, x: 0.56 },
+    ];
+    const featuredCardPos =
+      window.innerWidth >= 1600 ? featuredCardPosLarge : featuredCardPosSmall;
 
     // Create image cards dynamically
     const imagesContainer = document.querySelector(".featured-images");
@@ -84,21 +81,22 @@ document.addEventListener("DOMContentLoaded", () => {
       img.decoding = "async";
       img.alt = `featured work image ${i}`;
       featuredImgCard.appendChild(img);
-      // Convert the relative position to the current canvas dimensions.
+      imagesContainer.appendChild(featuredImgCard);
+
       const position = featuredCardPos[i - 1];
       gsap.set(featuredImgCard, {
-        x: position.x * imagesContainer.offsetWidth,
-        y: position.y * imagesContainer.offsetHeight,
+        x: position.x * imagesContainer.offsetWidth - featuredImgCard.offsetWidth / 2,
+        y: position.y * imagesContainer.offsetHeight - featuredImgCard.offsetHeight / 2,
       });
-      imagesContainer.appendChild(featuredImgCard);
     }
 
     // Initialize image cards with hidden and scaled-down state
     const featuredImgCards = document.querySelectorAll(".featured-img-card");
+    const easeInOut = gsap.parseEase("power2.inOut");
     featuredImgCards.forEach((featuredImgCard) => {
       gsap.set(featuredImgCard, {
-        z: -1500, // Push back in 3D space
-        scale: 0, // Scale down to invisible
+        scale: 0.8,
+        opacity: 0,
       });
     });
 
@@ -116,17 +114,36 @@ document.addEventListener("DOMContentLoaded", () => {
           x: xPosition,
         });
 
-        // Animate image cards (z-position and scale) with stagger
+        // Show one image at a time: enter, hold, then leave before the next.
         featuredImgCards.forEach((featuredImgCard, index) => {
-          const staggerOffset = index * 0.075; // Delay per card
-          const scaledProgress = (self.progress - staggerOffset) * 2; // Adjust progress
-          const individualProgress = Math.max(0, Math.min(1, scaledProgress)); // Clamp to [0,1]
-          const newZ = -1500 + (1500 + 1500) * individualProgress; // Move from -1500 to 1500
-          const scaleProgress = Math.min(1, individualProgress * 10); // Faster scale change
-          const scale = Math.max(0, Math.min(1, scaleProgress)); // Clamp scale to [0,1]
+          const cardStart = index / PROJECT_COUNT;
+          const cardProgress = Math.max(
+            0,
+            Math.min(1, (self.progress - cardStart) * PROJECT_COUNT),
+          );
+          const enterEnd = 0.3;
+          const exitStart = index === PROJECT_COUNT - 1 ? 1.1 : 0.7;
+          let scale = 0.8;
+          let opacity = 0;
+
+          if (cardProgress > 0 && cardProgress < enterEnd) {
+            const progress = easeInOut(cardProgress / enterEnd);
+            scale = 0.8 + 0.2 * progress;
+            opacity = progress;
+          } else if (cardProgress >= enterEnd && cardProgress <= exitStart) {
+            scale = 1;
+            opacity = 1;
+          } else if (cardProgress > exitStart) {
+            const progress = easeInOut(
+              (cardProgress - exitStart) / (1 - exitStart),
+            );
+            scale = 1 - 0.2 * progress;
+            opacity = 1 - progress;
+          }
+
           gsap.set(featuredImgCard, {
-            z: newZ,
             scale: scale,
+            opacity: opacity,
           });
         });
 

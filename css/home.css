@@ -80,6 +80,7 @@
     width: 100vw;
     height: 100svh;
     overflow: hidden;
+    isolation: isolate;
   }
 
   .featured-work .featured-titles {
@@ -88,6 +89,7 @@
     height: 100vh;
     display: flex;
     will-change: transform;
+    z-index: 1;
   }
 
   .featured-work .featured-title-wrapper {
@@ -127,16 +129,17 @@
     transform: translate(-50%, -50%);
     width: 200vw;
     height: 200vh;
-    transform-style: preserve-3d;
-    perspective: 500px;
+    z-index: 0;
   }
 
   .featured-work .featured-img-card {
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 375px;
+    height: 375px;
     border-radius: 2em;
     overflow: hidden;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
   }
 
   @media (min-width: 1600px) {
